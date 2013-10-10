@@ -145,7 +145,8 @@ h2 { padding-top:6%; }
 
     <!-- Begin Content -->
     <div id="content">     
-        <a class="medium red awesome">Получить курс валют &raquo;</a>	 
+        <a class="medium red awesome">Получить курс валют &raquo;</a>
+        <a class="medium red awesome">Очистить базу данных &raquo;</a>	 	 
         <br /> <br /> <br />
         <div id="container3">
             <div id="container2">
@@ -174,7 +175,7 @@ h2 { padding-top:6%; }
                 </div>
                 <!-- End Content --> 
             </div>
-            <!-- Begin Footer -->
+            <!-- Begin Footer -->    
         </div>
         <!-- End Footer -->
     </div>
