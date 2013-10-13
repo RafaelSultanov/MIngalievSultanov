@@ -10,3 +10,23 @@ x64/
 build/
 [Bb]in/
 [Oo]bj/
+
+# mac files
+*.DS_Store
+
+# Others
+sql/
+*.Cache
+ClientBin/
+[Ss]tyle[Cc]op.*
+~$*
+*~
+*.dbmdl
+*.[Pp]ublish.xml
+*.pfx
+*.publishsettings
+
+# SQL Server files
+App_Data/*.mdf
+App_Data/*.ldf
+
