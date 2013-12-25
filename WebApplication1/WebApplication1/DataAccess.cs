@@ -37,5 +37,24 @@ namespace CurrencyDB
             var collection = GetCollection();
             collection.RemoveAll();
         }
+
+        public void Update(Currency currency)
+        {
+            var collection = GetCollection();
+
+            var query = new QueryDocument {
+                { "Name", currency.Name }
+            };
+
+            var update = new UpdateDocument {
+                { "$set", new BsonDocument { 
+                        { "updated_at", currency.updated_at }, 
+                        {"Curs", currency.Curs}
+                    } 
+                }
+            };
+
+            collection.Update(query, update);
+        }
     }
 }

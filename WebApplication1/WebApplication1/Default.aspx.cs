@@ -15,38 +15,43 @@ using System.Xml;
 using CurrencyDB;
 
 namespace WebApplication1
-{   
+{
     public partial class _Default : System.Web.UI.Page
     {
-        public List<Currency> list { get; set; }
-        protected void Page_Load(object sender, EventArgs e)
+        public List<Currency> list
         {
+            get { return new DataAccess().GetCurrency(); }
+            set { list = value; }
         }
-
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-            DataBind();
-        } 
         protected void GetCurrency_Click(object sender, EventArgs e)
         {
             DataAccess db = new DataAccess();
 
             cb.DailyInfoSoapClient client = new cb.DailyInfoSoapClient();
- 
+
             DataTableReader reader = client.GetCursOnDate(DateTime.Now).CreateDataReader();
 
             while (reader.Read())
-            {  
-                var code = reader[4].ToString(); 
-                if ( code == "EUR" || code == "USD" || code == "CNY")
+            {
+                var code = reader[4].ToString();
+                if (code == "EUR" || code == "USD" || code == "CNY")
                 {
                     Currency currency = new Currency();
 
                     currency.Name = reader[0].ToString();
                     currency.Curs = reader[2].ToString();
                     currency.chCode = reader[4].ToString();
+                    currency.updated_at = TimeZone.CurrentTimeZone.ToUniversalTime(DateTime.Now).AddHours(4.0);
 
-                    db.Insert(currency);
+                    if (list.Count < 3)
+                    {
+                        db.Insert(currency);
+                    }
+                    else
+                    {
+                        db.Update(currency);
+                    }
+
                 }
             }
         }
@@ -54,11 +59,6 @@ namespace WebApplication1
         protected void RemoveCurrency_Click(object sender, EventArgs e)
         {
             new DataAccess().Remove();
-        }
-
-        private void DataBind()
-        {
-          list = new DataAccess().GetCurrency();
         }
     }
 }

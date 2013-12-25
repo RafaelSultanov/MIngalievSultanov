@@ -82,7 +82,7 @@
                 -moz-box-shadow: 0 1px 3px #999;
                 -webkit-box-shadow: 0 1px 3px #999;
                 background:#FFCC99;
-                height:90px;
+                height:120px;
             }
             #container2 {
                 clear:left;
@@ -91,7 +91,7 @@
                 position:relative;
                 right:33.333%;
                 background:#99CCCC;
-                height:90px;
+                height:120px;
             }
             #container1 {
                 float:left;
@@ -99,7 +99,7 @@
                 position:relative;
                 right:33.33%;
                 background:#FFCC99;
-                height:90px;
+                height:120px;
             }
             h2 { padding-top:6%; }
             #col1 {
@@ -149,16 +149,22 @@
                                         <h2>Курс доллара</h2>
                                         <br />
                                         <p> 1 $ = <%= list[0].Curs %></p>
+                                        <br />
+                                        <p> Время получения: <%= list[0].updated_at %> </p>
                                     </div>
                                     <div id="col2">
                                         <h2>Курс евро</h2>
                                         <br />
                                         <p> 1 евро = <%= list[1].Curs %> </p>
+                                        <br />
+                                        <p> Время получения: <%= list[0].updated_at %> </p>
                                     </div>
                                     <div id="col3">
                                         <h2>Курс китайского юаня</h2>
                                         <br />
                                         <p> 1 юань = <%= list[2].Curs %></p>
+                                        <br />
+                                        <p> Время получения: <%= list[0].updated_at %> </p>
                                     </div>
                                 </div>
                             </div> 
