@@ -12,5 +12,6 @@ namespace CurrencyDB
         public string Name { get; set; }
         public string chCode { get; set; }
         public string Curs { get; set; }
+        public DateTime updated_at { get; set; }
     }
 }
